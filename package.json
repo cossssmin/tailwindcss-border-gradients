@@ -1,0 +1,24 @@
+{
+  "name": "tailwindcss-border-gradients",
+  "version": "1.0.0",
+  "description": "Tailwind CSS plugin to generate border image gradient utilities",
+  "author": "Cosmin Popovici <hellocosmin@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellocosmin/tailwindcss-border-gradients.git"
+  },
+  "bugs": "https://github.com/hellocosmin/tailwindcss-border-gradients/issues",
+  "homepage": "https://github.com/hellocosmin/tailwindcss-border-gradients",
+  "scripts": {
+    "test": "jest",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "jest-matcher-css": "^1.0.3",
+    "postcss": "^7.0.5",
+    "release-it": "^7.6.2",
+    "tailwindcss": "^0.7.0"
+  }
+}
