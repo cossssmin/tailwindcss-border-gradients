@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-border-gradients",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tailwind CSS plugin to generate border image gradient utilities",
   "author": "Cosmin Popovici <hellocosmin@gmail.com>",
   "license": "MIT",
