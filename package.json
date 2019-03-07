@@ -6,10 +6,15 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hellocosmin/tailwindcss-border-gradients.git"
+    "url": "https://github.com/cossssmin/tailwindcss-border-gradients.git"
   },
-  "bugs": "https://github.com/hellocosmin/tailwindcss-border-gradients/issues",
-  "homepage": "https://github.com/hellocosmin/tailwindcss-border-gradients",
+  "bugs": "https://github.com/cossssmin/tailwindcss-border-gradients/issues",
+  "homepage": "https://github.com/cossssmin/tailwindcss-border-gradients",
+  "keywords": [
+    "border-image",
+    "gradient",
+    "tailwindcss"
+  ],
   "scripts": {
     "test": "jest",
     "release": "release-it"
