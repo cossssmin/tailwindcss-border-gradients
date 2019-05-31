@@ -49,14 +49,6 @@ test('there is no output without directions or positions', () => {
           'blue': '#00f',
         },
       },
-      radialBorderGradients: {
-        positions: {},
-        colors: {
-          'red': '#f00',
-          'green': '#0f0',
-          'blue': '#00f',
-        },
-      },
     },
   }).then(css => {
     expect(css).toMatchCss(``);
@@ -72,16 +64,6 @@ test('there is no output without colors', () => {
           'r': 'to right',
           'b': 'to bottom',
           'l': 'to left',
-        },
-        colors: {},
-      },
-      radialBorderGradients: {
-        positions: {
-          'default': 'center',
-          't': 'top',
-          'r': 'right',
-          'b': 'bottom',
-          'l': 'left',
         },
         colors: {},
       },
@@ -106,74 +88,28 @@ test('linear gradients have default directions', () => {
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-t-red {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-tr-red {
-        border-image: linear-gradient(to top right, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to top right, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-r-red {
-        border-image: linear-gradient(to right, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to right, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-br-red {
-        border-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-b-red {
-        border-image: linear-gradient(rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-bl-red {
-        border-image: linear-gradient(to bottom left, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to bottom left, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-l-red {
-        border-image: linear-gradient(to left, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to left, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-tl-red {
-        border-image: linear-gradient(to top left, rgba(255, 0, 0, 0), #f00)
-      }
-    `);
-  });
-});
-
-test('radial gradients have default shapes, sizes, and positions', () => {
-  return generatePluginCss({
-    theme: {
-      radialBorderGradients: {
-        colors: {
-          'red': '#f00',
-        },
-      },
-    },
-    variants: {
-      linearBorderGradients: [],
-      radialBorderGradients: [],
-    },
-  }).then(css => {
-    expect(css).toMatchCss(`
-      .border-radial-red {
-        border-image: radial-gradient(closest-side, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-t-red {
-        border-image: radial-gradient(closest-side at top, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-tr-red {
-        border-image: radial-gradient(closest-side at top right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-r-red {
-        border-image: radial-gradient(closest-side at right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-br-red {
-        border-image: radial-gradient(closest-side at bottom right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-b-red {
-        border-image: radial-gradient(closest-side at bottom, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-bl-red {
-        border-image: radial-gradient(closest-side at bottom left, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-l-red {
-        border-image: radial-gradient(closest-side at left, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-tl-red {
-        border-image: radial-gradient(closest-side at top left, #f00, rgba(255, 0, 0, 0))
+        border-image: linear-gradient(to top left, rgba(255, 0, 0, 0), #f00) 1
       }
     `);
   });
@@ -192,32 +128,20 @@ test('directions and positions can be customized', () => {
           'blue': '#00f',
         },
       },
-      radialBorderGradients: {
-        positions: {
-          'off-center': '55% 60%',
-        },
-        colors: {
-          'red': '#f00',
-        },
-      },
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-to-top-red {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-to-top-green {
-        border-image: linear-gradient(to top, rgba(0, 255, 0, 0), #0f0)
+        border-image: linear-gradient(to top, rgba(0, 255, 0, 0), #0f0) 1
       }
       .border-gradient-to-top-blue {
-        border-image: linear-gradient(to top, rgba(0, 0, 255, 0), #00f)
-      }
-      .border-radial-off-center-red {
-        border-image: radial-gradient(closest-side at 55% 60%, #f00, rgba(255, 0, 0, 0))
+        border-image: linear-gradient(to top, rgba(0, 0, 255, 0), #00f) 1
       }
     `);
   });
@@ -235,33 +159,17 @@ test('gradients can have multiple colors', () => {
           'red-green-blue': ['#f00', '#0f0', '#00f'],
         },
       },
-      radialBorderGradients: {
-        positions: {
-          'default': 'center',
-        },
-        colors: {
-          'red-green': ['#f00', '#0f0'],
-          'red-green-blue': ['#f00', '#0f0', '#00f'],
-        },
-      },
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-to-bottom-red-green {
-        border-image: linear-gradient(#f00, #0f0)
+        border-image: linear-gradient(#f00, #0f0) 1
       }
       .border-gradient-to-bottom-red-green-blue {
-        border-image: linear-gradient(#f00, #0f0, #00f)
-      }
-      .border-radial-red-green {
-        border-image: radial-gradient(closest-side, #f00, #0f0)
-      }
-      .border-radial-red-green-blue {
-        border-image: radial-gradient(closest-side, #f00, #0f0, #00f)
+        border-image: linear-gradient(#f00, #0f0, #00f) 1
       }
     `);
   });
@@ -280,46 +188,23 @@ test('multiple directions/positions and multiple colors can be used together', (
           'green': ['#0f0'],
         },
       },
-      radialBorderGradients: {
-        positions: {
-          'top': 'top',
-          'bottom': 'bottom',
-        },
-        colors: {
-          'red': ['#f00'],
-          'green': ['#0f0'],
-        },
-      },
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-to-top-red {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-to-bottom-red {
-        border-image: linear-gradient(rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-to-top-green {
-        border-image: linear-gradient(to top, rgba(0, 255, 0, 0), #0f0)
+        border-image: linear-gradient(to top, rgba(0, 255, 0, 0), #0f0) 1
       }
       .border-gradient-to-bottom-green {
-        border-image: linear-gradient(rgba(0, 255, 0, 0), #0f0)
-      }
-      .border-radial-top-red {
-        border-image: radial-gradient(closest-side at top, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-bottom-red {
-        border-image: radial-gradient(closest-side at bottom, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-top-green {
-        border-image: radial-gradient(closest-side at top, #0f0, rgba(0, 255, 0, 0))
-      }
-      .border-radial-bottom-green {
-        border-image: radial-gradient(closest-side at bottom, #0f0, rgba(0, 255, 0, 0))
+        border-image: linear-gradient(rgba(0, 255, 0, 0), #0f0) 1
       }
     `);
   });
@@ -341,15 +226,14 @@ test('colors can be referenced from the theme with a closure', () => {
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-b-red {
-        border-image: linear-gradient(rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-b-blue {
-        border-image: linear-gradient(rgba(0, 0, 255, 0), #00f)
+        border-image: linear-gradient(rgba(0, 0, 255, 0), #00f) 1
       }
     `);
   });
@@ -370,42 +254,23 @@ test('color keywords are accepted', () => {
         },
         colors: theme('colors'),
       }),
-      radialBorderGradients: theme => ({
-        positions: {
-          't': 'top',
-        },
-        colors: theme('colors'),
-      }),
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-t-white {
-        border-image: linear-gradient(to top, rgba(255, 255, 255, 0), white)
+        border-image: linear-gradient(to top, rgba(255, 255, 255, 0), white) 1
       }
       .border-gradient-t-black {
-        border-image: linear-gradient(to top, rgba(0, 0, 0, 0), black)
+        border-image: linear-gradient(to top, rgba(0, 0, 0, 0), black) 1
       }
       .border-gradient-t-transparent {
-        border-image: linear-gradient(to top, rgba(0, 0, 0, 0), transparent)
+        border-image: linear-gradient(to top, rgba(0, 0, 0, 0), transparent) 1
       }
       .border-gradient-t-current {
-        border-image: linear-gradient(to top, transparent, currentColor)
-      }
-      .border-radial-t-white {
-        border-image: radial-gradient(closest-side at top, white, rgba(255, 255, 255, 0))
-      }
-      .border-radial-t-black {
-        border-image: radial-gradient(closest-side at top, black, rgba(0, 0, 0, 0))
-      }
-      .border-radial-t-transparent {
-        border-image: radial-gradient(closest-side at top, transparent, rgba(0, 0, 0, 0))
-      }
-      .border-radial-t-current {
-        border-image: radial-gradient(closest-side at top, currentColor, transparent)
+        border-image: linear-gradient(to top, transparent, currentColor) 1
       }
     `);
   });
@@ -427,104 +292,14 @@ test('some keywords such as inherit are skipped', () => {
         },
         colors: theme('colors'),
       }),
-      radialBorderGradients: theme => ({
-        positions: {
-          't': 'top',
-        },
-        colors: theme('colors'),
-      }),
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-t-red {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
-      }
-      .border-radial-t-red {
-        border-image: radial-gradient(closest-side at top, #f00, rgba(255, 0, 0, 0))
-      }
-    `);
-  });
-});
-
-test('radial gradient shapes and sizes can be customized', () => {
-  return generatePluginCss({
-    theme: {
-      colors: {
-        'red': '#f00',
-        'green-blue': ['#0f0', '#00f'],
-      },
-      radialBorderGradients: theme => ({
-        shapes: {
-          'default': 'circle',
-          'ellipse': 'ellipse',
-        },
-        sizes: {
-          'default': 'closest-side',
-          'cover': 'farthest-corner',
-        },
-        positions: {
-          'default': 'center',
-          'tr': 'top right',
-        },
-        colors: theme('colors'),
-      }),
-    },
-    variants: {
-      radialBorderGradients: [],
-    },
-  }).then(css => {
-    expect(css).toMatchCss(`
-      .border-radial-red {
-        border-image: radial-gradient(circle closest-side, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-ellipse-red {
-        border-image: radial-gradient(closest-side, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-cover-red {
-        border-image: radial-gradient(circle, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-ellipse-cover-red {
-        border-image: radial-gradient(#f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-tr-red {
-        border-image: radial-gradient(circle closest-side at top right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-ellipse-tr-red {
-        border-image: radial-gradient(closest-side at top right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-cover-tr-red {
-        border-image: radial-gradient(circle at top right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-ellipse-cover-tr-red {
-        border-image: radial-gradient(at top right, #f00, rgba(255, 0, 0, 0))
-      }
-      .border-radial-green-blue {
-        border-image: radial-gradient(circle closest-side, #0f0, #00f)
-      }
-      .border-radial-ellipse-green-blue {
-        border-image: radial-gradient(closest-side, #0f0, #00f)
-      }
-      .border-radial-cover-green-blue {
-        border-image: radial-gradient(circle, #0f0, #00f)
-      }
-      .border-radial-ellipse-cover-green-blue {
-        border-image: radial-gradient(#0f0, #00f)
-      }
-      .border-radial-tr-green-blue {
-        border-image: radial-gradient(circle closest-side at top right, #0f0, #00f)
-      }
-      .border-radial-ellipse-tr-green-blue {
-        border-image: radial-gradient(closest-side at top right, #0f0, #00f)
-      }
-      .border-radial-cover-tr-green-blue {
-        border-image: radial-gradient(circle at top right, #0f0, #00f)
-      }
-      .border-radial-ellipse-cover-tr-green-blue {
-        border-image: radial-gradient(at top right, #0f0, #00f)
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
     `);
   });
@@ -543,13 +318,9 @@ test('there is no output for repeating gradients without lengths', () => {
         },
         colors: theme('colors'),
       }),
-      repeatingRadialBorderGradients: theme => ({
-        colors: theme('colors'),
-      }),
     },
     variants: {
       repeatingLinearBorderGradients: [],
-      repeatingRadialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(``);
@@ -574,59 +345,29 @@ test('lengths can be customized', () => {
           'lg': '100px',
         },
       }),
-      repeatingRadialBorderGradients: theme => ({
-        positions: {
-          'default': 'center',
-        },
-        colors: theme('colors'),
-        lengths: {
-          'sm': '10px',
-          'md': '20px',
-          'lg': '30px',
-        },
-      }),
     },
     variants: {
       repeatingLinearBorderGradients: [],
-      repeatingRadialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-t-red-sm {
-        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 25px)
+        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 25px) 1
       }
       .border-gradient-t-blue-sm {
-        border-image: repeating-linear-gradient(to top, rgba(0, 0, 255, 0), #00f 25px)
+        border-image: repeating-linear-gradient(to top, rgba(0, 0, 255, 0), #00f 25px) 1
       }
       .border-gradient-t-red-md {
-        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 50px)
+        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 50px) 1
       }
       .border-gradient-t-blue-md {
-        border-image: repeating-linear-gradient(to top, rgba(0, 0, 255, 0), #00f 50px)
+        border-image: repeating-linear-gradient(to top, rgba(0, 0, 255, 0), #00f 50px) 1
       }
       .border-gradient-t-red-lg {
-        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 100px)
+        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 100px) 1
       }
       .border-gradient-t-blue-lg {
-        border-image: repeating-linear-gradient(to top, rgba(0, 0, 255, 0), #00f 100px)
-      }
-      .border-radial-red-sm {
-        border-image: repeating-radial-gradient(#f00, rgba(255, 0, 0, 0) 10px)
-      }
-      .border-radial-blue-sm {
-        border-image: repeating-radial-gradient(#00f, rgba(0, 0, 255, 0) 10px)
-      }
-      .border-radial-red-md {
-        border-image: repeating-radial-gradient(#f00, rgba(255, 0, 0, 0) 20px)
-      }
-      .border-radial-blue-md {
-        border-image: repeating-radial-gradient(#00f, rgba(0, 0, 255, 0) 20px)
-      }
-      .border-radial-red-lg {
-        border-image: repeating-radial-gradient(#f00, rgba(255, 0, 0, 0) 30px)
-      }
-      .border-radial-blue-lg {
-        border-image: repeating-radial-gradient(#00f, rgba(0, 0, 255, 0) 30px)
+        border-image: repeating-linear-gradient(to top, rgba(0, 0, 255, 0), #00f 100px) 1
       }
     `);
   });
@@ -643,25 +384,8 @@ test('color stops can be customized', () => {
           'custom': ['#000', '#000 45%', '#fff 55%', '#fff'],
         },
       },
-      radialBorderGradients: {
-        positions: {
-          'default': 'center',
-        },
-        colors: {
-          'custom': ['#000', '#000 45%', '#fff 55%', '#fff'],
-        },
-      },
       repeatingLinearBorderGradients: theme => ({
         directions: theme('linearBorderGradients.directions'),
-        colors: {
-          'custom': ['#000', '#000 10px', '#fff 10px', '#fff 20px'],
-        },
-        lengths: {
-          'repeating': '',
-        },
-      }),
-      repeatingRadialBorderGradients: theme => ({
-        positions: theme('radialBorderGradients.positions'),
         colors: {
           'custom': ['#000', '#000 10px', '#fff 10px', '#fff 20px'],
         },
@@ -672,23 +396,15 @@ test('color stops can be customized', () => {
     },
     variants: {
       linearBorderGradients: [],
-      radialBorderGradients: [],
       repeatingLinearBorderGradients: [],
-      repeatingRadialBorderGradients: [],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-r-custom {
-        border-image: linear-gradient(to right, #000, #000 45%, #fff 55%, #fff)
-      }
-      .border-radial-custom {
-        border-image: radial-gradient(closest-side, #000, #000 45%, #fff 55%, #fff)
+        border-image: linear-gradient(to right, #000, #000 45%, #fff 55%, #fff) 1
       }
       .border-gradient-r-custom-repeating {
-        border-image: repeating-linear-gradient(to right, #000, #000 10px, #fff 10px, #fff 20px)
-      }
-      .border-radial-custom-repeating {
-        border-image: repeating-radial-gradient(#000, #000 10px, #fff 10px, #fff 20px)
+        border-image: repeating-linear-gradient(to right, #000, #000 10px, #fff 10px, #fff 20px) 1
       }
     `);
   });
@@ -705,14 +421,6 @@ test('responsive variants are generated by default', () => {
           'red': '#f00',
         },
       },
-      radialBorderGradients: {
-        positions: {
-          'default': 'center',
-        },
-        colors: {
-          'red': '#f00',
-        },
-      },
       repeatingLinearBorderGradients: theme => ({
         directions: theme('linearBorderGradients.directions'),
         colors: theme('linearBorderGradients.colors'),
@@ -720,40 +428,21 @@ test('responsive variants are generated by default', () => {
           'repeating': '20px',
         },
       }),
-      repeatingRadialBorderGradients: theme => ({
-        positions: theme('radialBorderGradients.positions'),
-        colors: theme('radialBorderGradients.colors'),
-        lengths: {
-          'repeating': '10px',
-        },
-      }),
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-t-red {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
-      }
-      .border-radial-red {
-        border-image: radial-gradient(closest-side, #f00, rgba(255, 0, 0, 0))
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-t-red-repeating {
-        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px)
-      }
-      .border-radial-red-repeating {
-        border-image: repeating-radial-gradient(#f00, rgba(255, 0, 0, 0) 10px)
+        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px) 1
       }
       @media (min-width: 640px) {
         .sm\\:border-gradient-t-red {
-          border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
-        }
-        .sm\\:border-radial-red {
-          border-image: radial-gradient(closest-side, #f00, rgba(255, 0, 0, 0))
+          border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
         }
         .sm\\:border-gradient-t-red-repeating {
-          border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px)
-        }
-        .sm\\:border-radial-red-repeating {
-          border-image: repeating-radial-gradient(#f00, rgba(255, 0, 0, 0) 10px)
+          border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px) 1
         }
       }
     `);
@@ -771,14 +460,6 @@ test('variants can be customized', () => {
           'red': '#f00',
         },
       },
-      radialBorderGradients: {
-        positions: {
-          'b': 'bottom',
-        },
-        colors: {
-          'blue': '#00f',
-        },
-      },
       repeatingLinearBorderGradients: theme => ({
         directions: theme('linearBorderGradients.directions'),
         colors: theme('linearBorderGradients.colors'),
@@ -786,48 +467,27 @@ test('variants can be customized', () => {
           'repeating': '20px',
         },
       }),
-      repeatingRadialBorderGradients: theme => ({
-        positions: theme('radialBorderGradients.positions'),
-        colors: theme('radialBorderGradients.colors'),
-        lengths: {
-          'repeating': '10px',
-        },
-      }),
     },
     variants: {
       linearBorderGradients: ['hover', 'active'],
-      radialBorderGradients: ['group-hover'],
       repeatingLinearBorderGradients: ['active'],
-      repeatingRadialBorderGradients: ['hover'],
     },
   }).then(css => {
     expect(css).toMatchCss(`
       .border-gradient-t-red {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .hover\\:border-gradient-t-red:hover {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .active\\:border-gradient-t-red:active {
-        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00)
-      }
-      .border-radial-b-blue {
-        border-image: radial-gradient(closest-side at bottom, #00f, rgba(0, 0, 255, 0))
-      }
-      .group:hover .group-hover\\:border-radial-b-blue {
-        border-image: radial-gradient(closest-side at bottom, #00f, rgba(0, 0, 255, 0))
+        border-image: linear-gradient(to top, rgba(255, 0, 0, 0), #f00) 1
       }
       .border-gradient-t-red-repeating {
-        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px)
+        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px) 1
       }
       .active\\:border-gradient-t-red-repeating:active {
-        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px)
-      }
-      .border-radial-b-blue-repeating {
-        border-image: repeating-radial-gradient(at bottom, #00f, rgba(0, 0, 255, 0) 10px)
-      }
-      .hover\\:border-radial-b-blue-repeating:hover {
-        border-image: repeating-radial-gradient(at bottom, #00f, rgba(0, 0, 255, 0) 10px)
+        border-image: repeating-linear-gradient(to top, rgba(255, 0, 0, 0), #f00 20px) 1
       }
     `);
   });
