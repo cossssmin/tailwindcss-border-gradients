@@ -1,5 +1,10 @@
 # Border Gradients Plugin for Tailwind CSS
 
+[![Version][npm-version-shield]][npm]
+[![Build][travis-ci-shield]][travis-ci]
+[![Downloads][npm-stats-shield]][npm]
+[![License][license-shield]][license]
+
 > This plugin is based on the [tailwindcss-gradients](https://github.com/benface/tailwindcss-gradients) plugin.
 
 ## Installation
@@ -88,3 +93,11 @@ The plugin generates the following utilities:
 
 - [ ] Config option for `border-image-slice`
 - [ ] Config option for `border-image-width`
+
+[npm]: https://www.npmjs.com/package/tailwindcss-border-gradients
+[npm-version-shield]: https://img.shields.io/npm/v/tailwindcss-border-gradients.svg?style=flat-square
+[npm-stats-shield]: https://img.shields.io/npm/dt/tailwindcss-border-gradients.svg?style=flat-square
+[travis-ci]: https://travis-ci.org/cossssmin/tailwindcss-border-gradients/
+[travis-ci-shield]: https://img.shields.io/travis/cossssmin/tailwindcss-border-gradients/master.svg?style=flat-square
+[license]: ./LICENSE
+[license-shield]: https://img.shields.io/npm/l/tailwindcss-border-gradients.svg?style=flat-square
