@@ -1,4 +1,4 @@
-# Border Gradients Plugin for Tailwind CSS
+# Tailwind CSS Border Gradients
 
 [![Version][npm-version-shield]][npm]
 [![Build][github-ci-shield]][github-ci]
@@ -98,6 +98,6 @@ The plugin generates the following utilities:
 [npm-version-shield]: https://img.shields.io/npm/v/tailwindcss-border-gradients.svg?style=flat-square
 [npm-stats-shield]: https://img.shields.io/npm/dt/tailwindcss-border-gradients.svg?style=flat-square
 [github-ci]: https://github.com/cossssmin/tailwindcss-border-gradients/
-[github-ci-shield]: https://img.shields.io/github/workflow/status/cossssmin/tailwindcss-border-gradients/Node.js%20CI
+[github-ci-shield]: https://img.shields.io/github/workflow/status/cossssmin/tailwindcss-border-gradients/Node.js%20CI?style=flat-square
 [license]: ./LICENSE
 [license-shield]: https://img.shields.io/npm/l/tailwindcss-border-gradients.svg?style=flat-square
