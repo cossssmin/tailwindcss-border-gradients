@@ -20,7 +20,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "color": "^3.1.1",
+    "color": "^4.1.0",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
